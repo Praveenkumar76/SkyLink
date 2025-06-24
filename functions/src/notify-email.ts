@@ -5,7 +5,7 @@ import type { Tweet, User } from './types';
 
 export const notifyEmail = regionalFunctions.firestore
   .document('tweets/{tweetId}')
-  .onCreate(async (snapshot): Promise<void> => {
+  .onCreate(async (snapshot: any): Promise<void> => {
     functions.logger.info('Sending notification email.');
 
     const { text, createdBy, images, parent } = snapshot.data() as Tweet;

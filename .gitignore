@@ -28,7 +28,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-
+.env
 # vercel
 .vercel
 
@@ -39,3 +39,6 @@ next-env.d.ts
 # python
 /.mypy_cache
 *.py
+
+
+skyline-7d4be-firebase-adminsdk-fbsvc-c4cd756ebd.json

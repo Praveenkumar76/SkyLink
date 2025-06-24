@@ -1,4 +1,4 @@
-import { AUTH } from '@lib/api/auth';
+import { SKYLINK_AUTH } from '@lib/api/auth';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type {
   TrendsData,
@@ -19,8 +19,8 @@ export default async function placeIdEndpoint(
   const { id, limit } = req.query as PlaceIdEndpointQuery;
 
   const response = await fetch(
-    `https://api.twitter.com/1.1/trends/place.json?id=${id}`,
-    AUTH
+    `https://api.skylink.social/v1/trends/place?id=${id}`,
+    SKYLINK_AUTH
   );
 
   const rawData = (await response.json()) as TrendsData | ErrorResponse;

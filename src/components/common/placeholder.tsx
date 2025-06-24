@@ -6,14 +6,11 @@ export function Placeholder(): JSX.Element {
     <main className='flex min-h-screen items-center justify-center'>
       <SEO
         title='Twitter'
-        description='From breaking news and entertainment to sports and politics, get the full story with all the live commentary.'
+        description='Connect and share with Twitter - Your social platform for meaningful connections.'
         image='/home.png'
       />
       <i>
-        <CustomIcon
-          className='h-20 w-20 text-[#1DA1F2]'
-          iconName='TwitterIcon'
-        />
+        <CustomIcon className='h-20 w-20' src='/X.jpg' alt='Twitter' />
       </i>
     </main>
   );

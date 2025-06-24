@@ -10,6 +10,8 @@ type InputAccentRadioProps = {
 type InputAccentData = Record<Accent, string>;
 
 const InputColors: Readonly<InputAccentData> = {
+  black:
+    'bg-accent-black hover:ring-accent-black/10 active:ring-accent-black/20',
   yellow:
     'bg-accent-yellow hover:ring-accent-yellow/10 active:ring-accent-yellow/20',
   blue: 'bg-accent-blue hover:ring-accent-blue/10 active:ring-accent-blue/20',

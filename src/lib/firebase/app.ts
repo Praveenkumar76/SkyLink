@@ -20,7 +20,13 @@ type Firebase = {
 };
 
 function initialize(): Firebase {
-  const firebaseApp = initializeApp(getFirebaseConfig());
+  let firebaseApp;
+  try {
+    firebaseApp = initializeApp(getFirebaseConfig());
+  } catch (error) {
+    // If already initialized, use the existing app
+    firebaseApp = initializeApp(getFirebaseConfig(), '[DEFAULT]');
+  }
 
   const auth = getAuth(firebaseApp);
   const storage = getStorage(firebaseApp);

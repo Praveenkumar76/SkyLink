@@ -31,10 +31,18 @@ import type { Theme, Accent } from '@lib/types/theme';
 export async function checkUsernameAvailability(
   username: string
 ): Promise<boolean> {
-  const { empty } = await getDocs(
-    query(usersCollection, where('username', '==', username), limit(1))
-  );
-  return empty;
+  try {
+    if (!username || typeof username !== 'string') {
+      throw new Error('Invalid username provided');
+    }
+    const querySnapshot = await getDocs(
+      query(usersCollection, where('username', '==', username), limit(1))
+    );
+    return querySnapshot.empty;
+  } catch (error) {
+    console.error('Error checking username availability:', error);
+    throw error;
+  }
 }
 
 export async function getCollectionCount<T>(

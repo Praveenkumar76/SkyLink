@@ -3,7 +3,7 @@
 ![](/.github/assets/presentation.png)
 
 <p align="center">
-  Twitter clone built in Next.js + TypeScript + Tailwind CSS using Cloud Firestore and Storage
+  SkyLink - A modern social platform built with Next.js + TypeScript + Tailwind CSS using Cloud Firestore and Storage
 </p>
 
 ## Preview 🎬
@@ -21,7 +21,7 @@ https://user-images.githubusercontent.com/55032197/201472767-9db0177a-79b5-4913-
 - Users can see their and other followers and the following list
 - Users can see all users and the trending list
 - Realtime update likes, retweets, and user profile
-- Realtime trending data from Twitter API
+- Realtime trending data and search functionality
 - User can edit their profile
 - Responsive design for mobile, tablet, and desktop
 - Users can customize the site color scheme and color background

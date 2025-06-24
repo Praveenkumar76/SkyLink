@@ -5,10 +5,10 @@ export function AppHead(): JSX.Element {
     <Head>
       <title>Twitter</title>
       <meta name='og:title' content='Twitter' />
-      <link rel='icon' href='/favicon.ico' />
+      <link rel='icon' href='/X.jpg' />
       <link rel='manifest' href='/site.webmanifest' key='site-manifest' />
-      <meta name='twitter:site' content='@ccrsxx' />
-      <meta name='twitter:card' content='summary_large_image' />
+      <meta name='description' content='Connect and share with Twitter' />
+      <meta name='og:description' content='Connect and share with Twitter' />
     </Head>
   );
 }

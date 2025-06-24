@@ -11,7 +11,7 @@
     --main-sidebar-background: var(--dark-sidebar-background);
     --main-accent: var(--accent-blue);
 
-    --dark-background: 0 0 0;
+    --dark-background: 21 32 43;
     --dim-background: 22 33 44;
     --light-background: 255 255 255;
 
@@ -23,8 +23,10 @@
     --dim-sidebar-background: 30 39 50;
     --light-sidebar-background: 247 249 249;
 
+    --accent-gray: 118 118 118;
+    --accent-black: 118 118 118;
     --accent-yellow: 255 213 0;
-    --accent-blue: 29 155 240;
+    --accent-blue: 29 161 242;
     --accent-pink: 249 26 130;
     --accent-purple: 120 87 255;
     --accent-orange: 255 122 0;
@@ -39,7 +41,7 @@
   }
 
   body {
-    @apply hover-animation bg-main-background font-twitter-chirp text-light-primary dark:text-dark-primary;
+    @apply hover-animation bg-main-background font-skylink text-light-primary dark:text-dark-primary;
   }
 }
 
@@ -79,7 +81,7 @@
   }
 
   .trim-alt {
-    @apply overflow-hidden text-ellipsis break-all [display:-webkit-box] [-webkit-line-clamp:1] [-webkit-box-orient:vertical];
+    @apply overflow-hidden text-ellipsis break-all [-webkit-box-orient:vertical] [-webkit-line-clamp:1] [display:-webkit-box];
   }
 
   .hover-card {

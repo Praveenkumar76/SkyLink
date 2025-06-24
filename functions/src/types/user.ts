@@ -1,5 +1,5 @@
 import type { Theme, Accent } from './theme';
-import type { Timestamp, FirestoreDataConverter } from 'firebase/firestore';
+import { Timestamp, type FirestoreDataConverter } from 'firebase/firestore';
 
 export type User = {
   id: string;
@@ -30,11 +30,31 @@ export type EditableData = Extract<
 export type EditableUserData = Pick<User, EditableData>;
 
 export const userConverter: FirestoreDataConverter<User> = {
-  toFirestore(user) {
-    return { ...user };
+  toFirestore(user: User) {
+    if (!user.id || typeof user.name !== 'string') {
+      throw new Error('Invalid user data');
+    }
+
+    return {
+      ...user,
+      updatedAt: user.updatedAt ?? Timestamp.now() // fallback if needed
+    };
   },
-  fromFirestore(snapshot, options) {
+
+  fromFirestore(snapshot, options): User {
     const data = snapshot.data(options);
-    return { ...data } as User;
+
+    if (
+      typeof data?.id !== 'string' ||
+      typeof data?.name !== 'string' ||
+      !(data?.createdAt instanceof Timestamp)
+    ) {
+      throw new Error('Invalid user document');
+    }
+
+    return {
+      ...data,
+      updatedAt: data.updatedAt ?? null
+    } as User;
   }
 };

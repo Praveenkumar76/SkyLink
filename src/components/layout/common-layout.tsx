@@ -46,7 +46,7 @@ export function TrendsLayout({ children }: LayoutProps): JSX.Element {
     <>
       {children}
       <Aside>
-        <Suggestions />
+        <AsideTrends inTrendsPage />
       </Aside>
     </>
   );

@@ -1,10 +1,11 @@
 import { functions, firestore, regionalFunctions } from './lib/utils';
 import { tweetConverter, bookmarkConverter } from './types';
 import type { Tweet } from './types';
+// import type { QueryDocumentSnapshot } from 'firebase-functions/lib/providers/firestore';
 
 export const normalizeStats = regionalFunctions.firestore
   .document('tweets/{tweetId}')
-  .onDelete(async (snapshot): Promise<void> => {
+  .onDelete(async (snapshot: any): Promise<void> => {
     const tweetId = snapshot.id;
     const tweetData = snapshot.data() as Tweet;
 
@@ -19,9 +20,7 @@ export const normalizeStats = regionalFunctions.firestore
     usersStatsToDelete.forEach((userId) => {
       functions.logger.info(`Deleting stats from ${userId}`);
 
-      const userStatsRef = firestore()
-        .doc(`users/${userId}/stats/stats`)
-        .withConverter(tweetConverter);
+      const userStatsRef = firestore().doc(`users/${userId}/stats/stats`);
 
       batch.update(userStatsRef, {
         tweets: firestore.FieldValue.arrayRemove(tweetId),
